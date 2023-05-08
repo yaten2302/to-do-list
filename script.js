@@ -10,8 +10,6 @@ inputBtn.addEventListener("click", () => {
         const empty = document.createElement('p');
         inputArea.appendChild(empty).style.color = 'red';
         inputArea.appendChild(empty).innerHTML = 'enter something';
-
-
     } else {
         const yourTask = document.createElement("p");
         yourTask.innerHTML = taskIinput.value;
@@ -19,8 +17,13 @@ inputBtn.addEventListener("click", () => {
         cross.innerHTML = "\u00d7";
         cross.classList.add("cross-button");
         output.appendChild(yourTask).appendChild(cross);
+        
+        // add event listener to the cross button
+        cross.addEventListener("click", () => {
+            // remove the parent element (to-do list element) from the output area
+            output.removeChild(yourTask);
+        });
     };
-
+    
     taskIinput.value = "";
-
 });
